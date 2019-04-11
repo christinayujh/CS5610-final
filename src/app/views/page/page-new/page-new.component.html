@@ -1,0 +1,46 @@
+<nav class="navbar navbar-light bg-light fixed-top">
+  <div class="container-fluid row">
+
+    <div class="float-left">
+      <a routerLink="/user/{{userId}}/website/{{websiteId}}/page" class="cl-text-black cl-icon-padding">
+          <span class="fas fa-chevron-left">
+          </span>
+      </a>
+      <a class="navbar-brand cl-text-white cl-text-bold">
+        New Page
+      </a>
+    </div>
+    <div class="navbar-text float-right">
+      <a (click)="createPage()" class="cl-icon-padding cl-text-black">
+          <span class="fas fa-check">
+          </span>
+      </a>
+    </div>
+
+  </div>
+</nav>
+
+<div class="container">
+  <form #f="ngForm">
+    <div class="form-group">
+      <label for="page-name">Name</label>
+      <input type="text" name="pageName" class="form-control" id="page-name" placeholder="Page Name" ngModel required
+             #pageName="ngModel">
+    </div>
+    <div class="form-group">
+      <label for="page-title">Title</label>
+      <input type="text" name="pageTitle" class="form-control" id="page-title" placeholder="Page Title" ngModel required
+             #pageTitle="ngModel">
+    </div>
+  </form>
+</div>
+
+<nav class="navbar navbar-light bg-light fixed-bottom">
+  <div class="container-fluid row">
+    <div class="float-right">
+      <a routerLink="/user/{{userId}}" class="cl-icon-padding">
+        <span class="fas fa-user"></span>
+      </a>
+    </div>
+  </div>
+</nav>
