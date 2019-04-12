@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var websiteSchema = require('../website/website.schema.server');
+var houseSchema = require('../house/house.schema.server');
 
 var userSchema = new mongoose.Schema({
   facebook: { id: String, token: String, displayName: String },
@@ -8,7 +8,7 @@ var userSchema = new mongoose.Schema({
   firstName: String,
   lastName: String,
   email: String,
-  websites: [websiteSchema],
+  houses: [houseSchema],
   dateCreate:{type: Date, default: Date.now()}
 },{collection:'Users'});
 

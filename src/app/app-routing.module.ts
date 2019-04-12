@@ -3,32 +3,27 @@ import {Routes, RouterModule} from '@angular/router';
 import {LoginComponent} from './views/user/login/login.component';
 import {RegisterComponent} from './views/user/register/register.component';
 import {ProfileComponent} from './views/user/profile/profile.component';
-import {WebsiteListComponent} from './views/website/website-list/website-list.component';
-import {WebsiteEditComponent} from './views/website/website-edit/website-edit.component';
-import {WebsiteNewComponent} from './views/website/website-new/website-new.component';
-import {PageListComponent} from './views/page/page-list/page-list.component';
-import {PageEditComponent} from './views/page/page-edit/page-edit.component';
-import {PageNewComponent} from './views/page/page-new/page-new.component';
-import {WidgetListComponent} from './views/widget/widget-list/widget-list.component';
-import {WidgetChooserComponent} from './views/widget/widget-chooser/widget-chooser.component';
-import {WidgetEditComponent} from './views/widget/widget-edit/widget-edit.component';
-import {FlickrImageSearchComponent} from './views/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
+import {HousesListComponent} from './views/houses/houses-list/houses-list.component';
 import {AuthGuard} from './services/auth-guard.service';
+import {HousesNewComponent} from './views/houses/houses-new/houses-new.component';
+import {HousesEditComponent} from './views/houses/houses-edit/houses-edit.component';
+import {CommentsListComponent} from './views/comments/comments-list/comments-list.component';
+import {CommentsNewComponent} from './views/comments/comments-new/comments-new.component';
+import {CommentsEditComponent} from './views/comments/comments-edit/comments-edit.component';
+import {HousesDetailComponent} from './views/houses/houses-detail/houses-detail.component';
 
 const appRoutes: Routes = [
+  {path: '', component: LoginComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'user/:uid', component: ProfileComponent, canActivate: [AuthGuard]},
-  {path: 'user/:uid/website', component: WebsiteListComponent},
-  {path: 'user/:uid/website/new', component: WebsiteNewComponent},
-  {path: 'user/:uid/website/:wid', component: WebsiteEditComponent},
-  {path: 'user/:uid/website/:wid/page', component: PageListComponent},
-  {path: 'user/:uid/website/:wid/page/new', component: PageNewComponent},
-  {path: 'user/:uid/website/:wid/page/:pid', component: PageEditComponent},
-  {path: 'user/:uid/website/:wid/page/:pid/widget', component: WidgetListComponent},
-  {path: 'user/:uid/website/:wid/page/:pid/widget/new', component: WidgetChooserComponent},
-  {path: 'user/:uid/website/:wid/page/:pid/widget/:wgid', component: WidgetEditComponent},
-  {path: 'user/:uid/website/:wid/page/:pid/widget/:wgid/flickr', component: FlickrImageSearchComponent},
+  {path: 'user/:uid/house', component: HousesListComponent},
+  {path: 'user/:uid/house/new', component: HousesNewComponent},
+  {path: 'user/:uid/house/:hid', component: HousesEditComponent},
+  {path: 'user/:uid/house/:hid/detail', component: HousesDetailComponent},
+  {path: 'user/:uid/house/:hid/comment', component: CommentsListComponent},
+  {path: 'user/:uid/house/:hid/comment/new', component: CommentsNewComponent},
+  {path: 'user/:uid/house/:hid/comment/:cid', component: CommentsEditComponent},
 
 ];
 

@@ -1,0 +1,40 @@
+
+<nav class="navbar fixed-top cl-blue-navbar">
+  <div class="row container-fluid">
+    <div class="col-sm-12 d-none d-sm-block">
+      <div class="container-fluid">
+        <a routerLink="./detail" class="navbar-link cl-text-white">
+          <span class="fas fa-chevron-left"></span>
+        </a>
+        <a class="cl-text-white navbar-brand cl-text-bold" routerLink="./">
+          Edit Comment
+        </a>
+        <a (click)="updateComment()" class="navbar-link navbar-text float-right cl-text-white cl-icon-padding">
+          <span class="fas fa-check"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="row container-fluid">
+
+  <div class="col-sm-12">
+    <form>
+      <div class="form-group">
+        <label for="comment-description">Comment Description</label>
+        <textarea [(ngModel)]="comment.description" name="description" id="comment-description" class="form-control" rows="5"
+                  placeholder="Blog is a blog-publishing service."></textarea>
+      </div>
+      <a class="btn btn-danger  btn-block" (click)="deleteComment()">Delete</a>
+    </form>
+  </div>
+</div>
+
+<nav class="navbar fixed-bottom cl-blue-navbar">
+  <div class="container-fuild">
+    <a routerLink="/user/{{userId}}" class="navbar-link float-right cl-text-white cl-icon-padding">
+      <span class="fas fa-user"></span>
+    </a>
+  </div>
+</nav>

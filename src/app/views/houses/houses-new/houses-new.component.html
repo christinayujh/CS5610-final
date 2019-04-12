@@ -1,0 +1,48 @@
+
+<nav class="navbar fixed-top cl-blue-navbar">
+  <div class="row container-fluid">
+      <div class="container-fluid">
+        <a routerLink="/user/{{userId}}/house" class="navbar-link cl-text-white">
+          <span class="fas fa-chevron-left"></span>
+        </a>
+        <a class="cl-text-white navbar-brand cl-text-bold" routerLink="./">
+          New Houses
+        </a>
+        <a (click)="createHouse()" class="navbar-text navbar-link float-right cl-text-white cl-icon-padding">
+          <span class="fas fa-check"></span>
+        </a>
+      </div>
+    </div>
+</nav>
+
+<div class="row contain-fluid">
+  <div class="col-sm-12">
+    <form #f="ngForm">
+      <div class="form-group">
+        <label for="house-name">Name</label>
+        <input type="text" name="name" class="form-control" id="house-name" placeholder="Name" ngModel required #name="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="house-price">Price</label>
+        <input type="text" name="price" class="form-control" id="house-price" placeholder="Price" ngModel required #price="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="house-url">Url</label>
+        <input type="text" name="url" class="form-control" id="house-url" placeholder="Url" ngModel required #url="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="house-description">Description</label>
+        <textarea name="description" id="house-description" class="form-control" rows="5" placeholder="Description" ngModel required #description="ngModel"></textarea>
+      </div>
+    </form>
+  </div>
+</div>
+
+<nav class="navbar fixed-bottom cl-blue-navbar">
+  <div class="container-fuild">
+    <a routerLink="/user/{{userId}}" class="navbar-link float-right cl-text-white cl-icon-padding">
+      <span class="fas fa-user"></span>
+    </a>
+  </div>
+</nav>
+

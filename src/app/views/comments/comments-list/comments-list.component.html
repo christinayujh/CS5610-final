@@ -1,0 +1,17 @@
+
+
+<div class="container">
+  <ul class="list-group cl-list-group-borderless">
+
+    <li class="list-group-item cl-list-item-borderless" *ngFor="let comment of comments">
+      <a routerLink="/user/{{userId}}/house/{{houseId}}/comment/{{comment._id}}" *ngIf="comment.owner === user"><span class="fas fa-cog float-right"></span></a>
+      <strong>{{comment.owner}}</strong>
+      <span class="float-right">{{comment.dateCreate}}</span>
+      <p>{{comment.description}}</p>
+    </li>
+
+  </ul>
+</div>
+
+
+

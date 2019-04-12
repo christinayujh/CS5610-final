@@ -1,0 +1,36 @@
+
+<nav class="navbar fixed-top cl-blue-navbar">
+  <div class="row container-fluid">
+    <div class="container-fluid">
+      <a routerLink="/user/{{userId}}/house" class="navbar-link cl-text-white">
+        <span class="fas fa-chevron-left"></span>
+      </a>
+      <a class="cl-text-white navbar-brand cl-text-bold" routerLink="./">
+        New Comments
+      </a>
+      <a (click)="createComment()" class="navbar-text navbar-link float-right cl-text-white cl-icon-padding">
+        <span class="fas fa-check"></span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<div class="row contain-fluid">
+  <div class="col-sm-12">
+    <form #f="ngForm">
+      <div class="form-group">
+        <label for="comment-description">Description</label>
+        <textarea name="description" id="comment-description" class="form-control" rows="5" placeholder="Description" ngModel required #description="ngModel"></textarea>
+      </div>
+    </form>
+  </div>
+</div>
+
+<nav class="navbar fixed-bottom cl-blue-navbar">
+  <div class="container-fuild">
+    <a routerLink="/user/{{userId}}" class="navbar-link float-right cl-text-white cl-icon-padding">
+      <span class="fas fa-user"></span>
+    </a>
+  </div>
+</nav>
+

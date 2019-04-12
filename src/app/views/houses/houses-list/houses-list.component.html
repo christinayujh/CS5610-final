@@ -1,0 +1,44 @@
+<nav class="navbar fixed-top cl-blue-navbar">
+  <div class="container-fluid">
+    <div class="float-left">
+      <a routerLink="/user/{{userId}}" class="navbar-link cl-text-white">
+        <span class="fas fa-chevron-left"></span>
+      </a>
+      <a class="cl-text-white navbar-brand cl-text-bold" routerLink="/user/{{userId}}/house">
+        Houses
+      </a>
+    </div>
+
+    <a routerLink="/user/{{userId}}/house/new" class="navbar-link float-right cl-text-white cl-icon-padding">
+      <span class="fas fa-plus"></span>
+    </a>
+  </div>
+</nav>
+
+<div class="container">
+  <input [(ngModel)]="myflag" type="checkbox" [ngModelOptions]="{standalone: true}" (change)="onChange()"/> List My Houses
+  <div class="row" style="display:flex; flex-wrap: wrap;">
+    <div class="col-sm-4 d-none d-sm-block" *ngFor="let house of houses">
+      <div class="img-thumbnail img-fluid">
+        <img src="{{house.url}}" style="max-width: 100%; height: 250px">
+      </div>
+        <div class="caption">
+          <h4>{{house.name}}</h4>
+          <h4>{{house.price}}</h4>
+        </div>
+        <p>
+          <a routerLink="/user/{{userId}}/house/{{house._id}}/detail" class="btn btn-primary">More Info</a>
+        </p>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar fixed-bottom cl-blue-navbar">
+  <div class="container-fuild">
+    <a routerLink="/user/{{userId}}" class="navbar-link float-right cl-text-white cl-icon-padding">
+      <span class="fas fa-user"></span>
+    </a>
+  </div>
+</nav>
+
+

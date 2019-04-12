@@ -16,10 +16,10 @@ export class AuthGuard implements CanActivate {
   // @ts-ignore
   async canActivate() {
     let auth = false;
-    await this.f().then(data => {
-      const user = data.toString();
+    await this.f().then((data: any) => {
+      const user = data;
       if (user !== '0') {
-        this.sharedService.user = user;
+        this.sharedService.user = user.username;
         auth = true;
       } else {
           this.router.navigate(['/login']);
