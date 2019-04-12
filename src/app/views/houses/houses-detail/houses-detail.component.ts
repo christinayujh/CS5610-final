@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HouseService} from '../../../services/house.service.client';
 import {ActivatedRoute} from '@angular/router';
 import {House} from '../../../models/house.model.client';
@@ -15,9 +15,12 @@ export class HousesDetailComponent implements OnInit {
   houseId: String;
   house: House;
   user: String;
+  role: String;
+
   constructor(private houseService: HouseService, private activatedRoute: ActivatedRoute, private sharedService: SharedService) {
     this.house = new House('123', '123', '123', '123', '123', '123');
     this.user = sharedService.user;
+    this.role = sharedService.role;
   }
 
   ngOnInit() {

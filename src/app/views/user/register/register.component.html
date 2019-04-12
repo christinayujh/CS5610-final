@@ -6,6 +6,10 @@
            #password="ngModel">
     <input type="password" name="verifyPassword" placeholder="verifyPassword" class="form-control" ngModel required
            #verifyPassword="ngModel">
+    <select class="form-control" name="role" ngModel required #role="ngModel">
+      <option disabled selected value>-- select a role --</option>
+      <option *ngFor="let role of roles" [value]="role">{{role}}</option>
+    </select>
     <button [disabled]="!f.valid || password.value !== verifyPassword.value" class="btn btn-primary btn-block" type="submit">
       Register
     </button>

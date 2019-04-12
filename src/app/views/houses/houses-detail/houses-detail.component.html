@@ -20,7 +20,7 @@
     <h3>{{house.description}}</h3>
   </div>
   <p>
-    <a routerLink="/user/{{userId}}/house/{{houseId}}" class="btn btn-primary" *ngIf="house.owner === user">Edit</a>
+    <a routerLink="/user/{{userId}}/house/{{houseId}}" class="btn btn-primary" *ngIf="role === 'Admin' || house.owner === user">Edit</a>
   </p>
   <a routerLink="/user/{{userId}}/house/{{houseId}}/comment/new" class="btn btn-primary">Add Comment</a>
   <app-comments-list></app-comments-list>

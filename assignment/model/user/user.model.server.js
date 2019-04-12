@@ -27,7 +27,6 @@ function populateUsers(users) {
 }
 
 function createUser(user) {
-  console.log("model"+user);
   return userModel.create(user);
 }
 

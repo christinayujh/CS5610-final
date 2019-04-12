@@ -13,9 +13,11 @@ export class CommentsListComponent implements OnInit {
   houseId: String;
   comments = [{}];
   user: String;
+  role: String;
 
   constructor(private commentService: CommentService, private activatedRoute: ActivatedRoute, private sharedService: SharedService) {
     this.user = sharedService.user;
+    this.role = sharedService.role;
   }
 
   ngOnInit() {

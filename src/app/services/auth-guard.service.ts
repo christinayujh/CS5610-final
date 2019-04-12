@@ -20,6 +20,7 @@ export class AuthGuard implements CanActivate {
       const user = data;
       if (user !== '0') {
         this.sharedService.user = user.username;
+        this.sharedService.role = user.role;
         auth = true;
       } else {
           this.router.navigate(['/login']);

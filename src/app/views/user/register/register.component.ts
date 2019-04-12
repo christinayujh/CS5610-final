@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
 
   user;
   error;
-
+  roles = ['User', 'Admin'];
 
   constructor(private userService: UserService, private router: Router) {
 
@@ -25,8 +25,8 @@ export class RegisterComponent implements OnInit {
   register() {
     const username = this.loginForm.value.username;
     const password = this.loginForm.value.password;
-
-    this.user = {username: username, password: password};
+    const role = this.loginForm.value.role;
+    this.user = {username: username, password: password, role: role};
 
     // this.userService.createUser(this.user)
     //   .subscribe((user: User) => {
@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
     //       this.router.navigate(['/user', user._id]);
     //     }
     //   });
-    this.userService.register(username, password).subscribe((user: any) => {
+    this.userService.register(username, password, role).subscribe((user: any) => {
       this.router.navigate(['/user', user._id]);
     }, (error: any) => {
       this.error = error._body;

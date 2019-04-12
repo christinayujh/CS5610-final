@@ -8,6 +8,7 @@ var userSchema = new mongoose.Schema({
   firstName: String,
   lastName: String,
   email: String,
+  role: String,
   houses: [houseSchema],
   dateCreate:{type: Date, default: Date.now()}
 },{collection:'Users'});
