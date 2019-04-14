@@ -4,10 +4,12 @@ module.exports = function (app) {
 
 //house related api
   app.get("/api/user/:userId/house", findAllHousesForUser);
+  app.get("/api/user/:userId/order", findAllHousesForBuyer);
   app.get("/api/house", findAllHouses);
   app.get("/api/house/:houseId", findHouseById);
   app.post("/api/user/:userId/house", createHouse);
   app.put("/api/house/:houseId", updateHouse);
+  app.put("/api/house/:houseId/order", deleteOrder);
   app.delete("/api/house/:houseId", deleteHouse);
 
   //delete me when push to heroku
@@ -44,6 +46,18 @@ module.exports = function (app) {
   function findAllHousesForUser(req, res) {
     let id = req.params.userId;
     houseModel.findAllHousesForUser(id).exec(
+      function (err, houses) {
+        if (err) {
+          return res.sendStatus(400).send(err);
+        }
+        return res.json(houses);
+      }
+    );
+  }
+
+  function findAllHousesForBuyer(req, res) {
+    let id = req.params.userId;
+    houseModel.findAllHousesForBuyer(id).exec(
       function (err, houses) {
         if (err) {
           return res.sendStatus(400).send(err);
@@ -115,6 +129,19 @@ module.exports = function (app) {
     console.log("delete house");
     let houseId = req.params.houseId;
     houseModel.deleteHouse(houseId).exec(
+      function (err, house) {
+        if (err) {
+          return res.sendStatus(400).send(err);
+        }
+        return res.json(house);
+      }
+    );
+  }
+
+  function deleteOrder(req, res) {
+    let houseId = req.params.houseId;
+    let house = req.body;
+    houseModel.updateHouse(houseId, house).exec(
       function (err, house) {
         if (err) {
           return res.sendStatus(400).send(err);

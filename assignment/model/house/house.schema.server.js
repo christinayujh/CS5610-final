@@ -7,6 +7,7 @@ var houseSchema = new mongoose.Schema({
   price: String,
   url: String,
   owner: String,
+  buyer: mongoose.Schema.ObjectId,
   comments: [mongoose.Schema.ObjectId],
   dateCreate: {type: Date, default: Date.now()}
 }, {collection: 'Houses'});

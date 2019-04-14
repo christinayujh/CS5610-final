@@ -23,6 +23,7 @@ import {CommentsNewComponent} from './views/comments/comments-new/comments-new.c
 import {HouseService} from './services/house.service.client';
 import {CommentService} from './services/comment.service.client';
 import { HousesDetailComponent } from './views/houses/houses-detail/houses-detail.component';
+import { HousesOrderComponent } from './views/houses/houses-order/houses-order.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { HousesDetailComponent } from './views/houses/houses-detail/houses-detai
     CommentsListComponent,
     CommentsEditComponent,
     CommentsNewComponent,
-    HousesDetailComponent
+    HousesDetailComponent,
+    HousesOrderComponent
   ],
   imports: [
     BrowserModule,

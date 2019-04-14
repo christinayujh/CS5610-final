@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HouseService} from '../../../services/house.service.client';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {House} from '../../../models/house.model.client';
 import {SharedService} from '../../../services/shared.service';
 
@@ -17,17 +17,23 @@ export class HousesDetailComponent implements OnInit {
   user: String;
   role: String;
 
-  constructor(private houseService: HouseService, private activatedRoute: ActivatedRoute, private sharedService: SharedService) {
-    this.house = new House('123', '123', '123', '123', '123', '123');
+  constructor(private houseService: HouseService, private activatedRoute: ActivatedRoute, private router: Router, private sharedService: SharedService) {
+    this.house = new House('123', '123', '123', '123', '123', '123', '123');
     this.user = sharedService.user;
     this.role = sharedService.role;
+  }
+
+  buy(house) {
+    this.house.buyer = this.userId;
+    this.houseService.updateHouse(this.houseId, this.house).subscribe(hou => {
+      this.router.navigateByUrl('/user/' + this.userId + '/order');
+    });
   }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe((params: any) => {
       this.userId = params['uid'];
       this.houseId = params['hid'];
-
     });
     this.houseService.findHouseById(this.houseId)
       .subscribe(data => {

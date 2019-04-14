@@ -11,6 +11,7 @@ import {CommentsListComponent} from './views/comments/comments-list/comments-lis
 import {CommentsNewComponent} from './views/comments/comments-new/comments-new.component';
 import {CommentsEditComponent} from './views/comments/comments-edit/comments-edit.component';
 import {HousesDetailComponent} from './views/houses/houses-detail/houses-detail.component';
+import {HousesOrderComponent} from './views/houses/houses-order/houses-order.component';
 
 const appRoutes: Routes = [
   {path: '', component: LoginComponent},
@@ -18,6 +19,7 @@ const appRoutes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'user/:uid', component: ProfileComponent, canActivate: [AuthGuard]},
   {path: 'user/:uid/house', component: HousesListComponent},
+  {path: 'user/:uid/order', component: HousesOrderComponent},
   {path: 'user/:uid/house/new', component: HousesNewComponent},
   {path: 'user/:uid/house/:hid', component: HousesEditComponent},
   {path: 'user/:uid/house/:hid/detail', component: HousesDetailComponent},

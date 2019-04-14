@@ -7,6 +7,7 @@ var houseModel = mongoose.model("House", houseSchema);
 
 houseModel.createHouse = createHouse;
 houseModel.findAllHousesForUser = findAllHousesForUser;
+houseModel.findAllHousesForBuyer = findAllHousesForBuyer;
 houseModel.findAllHouses = findAllHouses;
 houseModel.findHouseById = findHouseById;
 houseModel.updateHouse = updateHouse;
@@ -40,6 +41,10 @@ function createHouse(userId, house) {
 
 function findAllHousesForUser(userId) {
   return houseModel.find({userId: userId});
+}
+
+function findAllHousesForBuyer(userId) {
+  return houseModel.find({buyer: userId});
 }
 
 function findAllHouses() {

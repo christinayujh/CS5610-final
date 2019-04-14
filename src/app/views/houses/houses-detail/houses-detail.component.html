@@ -18,11 +18,13 @@
     <h4>{{house.name}}</h4>
     <h4>{{house.price}}</h4>
     <h3>{{house.description}}</h3>
+    <h3 *ngIf="house.buyer">Sold Out</h3>
   </div>
   <p>
     <a routerLink="/user/{{userId}}/house/{{houseId}}" class="btn btn-primary" *ngIf="role === 'Admin' || house.owner === user">Edit</a>
   </p>
   <a routerLink="/user/{{userId}}/house/{{houseId}}/comment/new" class="btn btn-primary">Add Comment</a>
+  <a class="btn btn-primary" (click)="buy(house)" *ngIf="role === 'Buyer' && (!house.buyer || house.buyer==null)">Buy</a>
   <app-comments-list></app-comments-list>
 </div>
 

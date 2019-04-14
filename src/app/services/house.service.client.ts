@@ -26,11 +26,19 @@ export class HouseService {
     return this._http.get<House>(this.baseUrl + '/api/house/' + houseId);
   }
 
+  findHouseByBuyerId(userId) {
+    return this._http.get<[House]>(this.baseUrl + '/api/user/' + userId + '/order');
+  }
+
   updateHouse(houseId, house) {
     return this._http.put<House>(this.baseUrl + '/api/house/' + houseId, house);
   }
 
   deleteHouse(houseId) {
     return this._http.delete<House>(this.baseUrl + '/api/house/' + houseId);
+  }
+
+  deleteOrder(houseId, house) {
+    return this._http.put<House>(this.baseUrl + '/api/house/' + houseId + '/order', house);
   }
 }

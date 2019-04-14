@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HouseService} from '../../../services/house.service.client';
 import {ActivatedRoute} from '@angular/router';
+import {SharedService} from '../../../services/shared.service';
 
 @Component({
   selector: 'app-houses-list',
@@ -11,8 +12,9 @@ export class HousesListComponent implements OnInit {
   userId: String;
   houses = [{}];
   myflag = false;
-
-  constructor(private houseService: HouseService, private activatedRoute: ActivatedRoute) {
+  role: String;
+  constructor(private houseService: HouseService, private activatedRoute: ActivatedRoute, private sharedService: SharedService) {
+    this.role = sharedService.role;
   }
 
   onChange() {

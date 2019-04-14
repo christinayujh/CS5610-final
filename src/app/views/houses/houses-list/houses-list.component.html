@@ -9,14 +9,19 @@
       </a>
     </div>
 
-    <a routerLink="/user/{{userId}}/house/new" class="navbar-link float-right cl-text-white cl-icon-padding">
+    <a routerLink="/user/{{userId}}/house/new" class="navbar-link float-right cl-text-white cl-icon-padding" *ngIf="role === 'Seller'">
       <span class="fas fa-plus"></span>
+    </a>
+    <a class="cl-text-white navbar-brand cl-text-bold" routerLink="/user/{{userId}}/order" *ngIf="role === 'Buyer'">
+      My Order
     </a>
   </div>
 </nav>
 
 <div class="container">
-  <input [(ngModel)]="myflag" type="checkbox" [ngModelOptions]="{standalone: true}" (change)="onChange()"/> List My Houses
+  <div  *ngIf="role !== 'Buyer'">
+    <input [(ngModel)]="myflag" type="checkbox" [ngModelOptions]="{standalone: true}" (change)="onChange()"/> List My Houses
+  </div>
   <div class="row" style="display:flex; flex-wrap: wrap;">
     <div class="col-sm-4 d-none d-sm-block" *ngFor="let house of houses">
       <div class="img-thumbnail img-fluid">
