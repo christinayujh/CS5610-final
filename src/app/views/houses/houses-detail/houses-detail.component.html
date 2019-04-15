@@ -1,31 +1,40 @@
 <nav class="navbar fixed-top cl-blue-navbar">
   <div class="container-fluid">
     <div class="float-left">
-      <a routerLink="/user/{{userId}}/house" class="navbar-link cl-text-white">
+      <a [routerLink]="userId?['/user', userId, 'house']:[]" class="navbar-link cl-text-white">
         <span class="fas fa-chevron-left"></span>
       </a>
-      <a class="cl-text-white navbar-brand cl-text-bold" routerLink="./">
+      <a class="cl-text-white navbar-brand cl-text-bold">
         House Detail
       </a>
     </div>
 
   </div>
 </nav>
-
-<div class="thumbnail img-fluid">
-  <img src="{{house.url}}" style="max-width: 90%; height: auto">
-  <div class="caption">
-    <h4>{{house.name}}</h4>
-    <h4>{{house.price}}</h4>
-    <h3>{{house.description}}</h3>
-    <h3 *ngIf="house.buyer">Sold Out</h3>
+<div class="container">
+  <div class="row" style="display:flex; flex-wrap: wrap;">
+    <div class="col-sm-4 d-none d-sm-block">
+      <app-map [address]=house?house.address:null></app-map>
+    </div>
+    <div class="col-sm-8 d-none d-sm-block" *ngIf="house">
+      <div class="img-thumbnail img-fluid">
+        <img src="{{house.url}}" style="max-width: 90%; height: auto">
+        <div class="caption-full">
+          <h4 class="float-right">{{house.price}}</h4>
+          <h4><a>{{house.name}}</a></h4>
+          <h4>{{house.address}}</h4>
+          <p><em>{{house.description}}</em></p>
+          <h3 *ngIf="house && house.buyer">Sold Out</h3>
+        </div>
+        <p>
+          <a routerLink="/user/{{userId}}/house/{{houseId}}" class="btn btn-primary"
+             *ngIf="house && (role === 'Admin' || house.owner === user)">Edit</a>
+        </p>
+        <a class="btn btn-primary" (click)="buy(house)" *ngIf="role === 'Buyer' && house && (!house.buyer || house.buyer==null)">Buy</a>
+      </div>
+      <app-comments-list></app-comments-list>
+    </div>
   </div>
-  <p>
-    <a routerLink="/user/{{userId}}/house/{{houseId}}" class="btn btn-primary" *ngIf="role === 'Admin' || house.owner === user">Edit</a>
-  </p>
-  <a routerLink="/user/{{userId}}/house/{{houseId}}/comment/new" class="btn btn-primary">Add Comment</a>
-  <a class="btn btn-primary" (click)="buy(house)" *ngIf="role === 'Buyer' && (!house.buyer || house.buyer==null)">Buy</a>
-  <app-comments-list></app-comments-list>
 </div>
 
 <nav class="navbar fixed-bottom cl-blue-navbar">

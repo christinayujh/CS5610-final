@@ -19,6 +19,13 @@
 </nav>
 
 <div class="container">
+  <header class="jumbotron">
+    <div class="container">
+      <h1>Welcome to House Trading!</h1>
+      <p>View our hand-picked houses from all over the world</p>
+    </div>
+  </header>
+
   <div  *ngIf="role !== 'Buyer'">
     <input [(ngModel)]="myflag" type="checkbox" [ngModelOptions]="{standalone: true}" (change)="onChange()"/> List My Houses
   </div>

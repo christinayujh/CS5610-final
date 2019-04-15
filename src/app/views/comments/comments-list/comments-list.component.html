@@ -1,13 +1,19 @@
-
-
-<div class="container">
+<div class="container card">
+  <p>
+  <a routerLink="/user/{{userId}}/house/{{houseId}}/comment/new" class="btn btn-success float-right" role="button">Add Comment</a>
+  </p>
   <ul class="list-group cl-list-group-borderless">
 
     <li class="list-group-item cl-list-item-borderless" *ngFor="let comment of comments">
-      <a routerLink="/user/{{userId}}/house/{{houseId}}/comment/{{comment._id}}" *ngIf="role === 'Admin' || comment.owner === user"><span class="fas fa-cog float-right"></span></a>
-      <strong>{{comment.owner}}</strong>
-      <span class="float-right">{{comment.dateCreate}}</span>
-      <p>{{comment.description}}</p>
+      <div class="card-header">
+        <a routerLink="/user/{{userId}}/house/{{houseId}}/comment/{{comment._id}}"
+           *ngIf="role === 'Admin' || comment.owner === user"><span class="fas fa-cog float-right"></span></a>
+        <strong>{{comment.owner}}</strong>
+        <span class="float-right">{{comment.dateCreate}}</span>
+      </div>
+      <div class="card-body">
+        <p>{{comment.description}}</p>
+      </div>
     </li>
 
   </ul>

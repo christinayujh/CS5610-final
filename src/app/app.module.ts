@@ -24,6 +24,11 @@ import {HouseService} from './services/house.service.client';
 import {CommentService} from './services/comment.service.client';
 import { HousesDetailComponent } from './views/houses/houses-detail/houses-detail.component';
 import { HousesOrderComponent } from './views/houses/houses-order/houses-order.component';
+import {PublicService} from './services/public.service';
+import { AgmCoreModule, GoogleMapsAPIWrapper } from '@agm/core';
+import { MapComponent } from './views/houses/houses-detail/map/map.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LandingComponent } from './views/landing/landing.component';
 
 @NgModule({
   declarations: [
@@ -39,16 +44,20 @@ import { HousesOrderComponent } from './views/houses/houses-order/houses-order.c
     CommentsEditComponent,
     CommentsNewComponent,
     HousesDetailComponent,
-    HousesOrderComponent
+    HousesOrderComponent,
+    MapComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    QuillEditorModule
+    QuillEditorModule,
+    NgbModule.forRoot(),
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyDOzeEzBBf1fY_pG1_PcUUthiqmWU8Bpr0'}),
   ],
-  providers: [UserService, HouseService, CommentService, SharedService, FlickrService, AuthGuard],
+  providers: [UserService, HouseService, CommentService, PublicService, GoogleMapsAPIWrapper, SharedService, FlickrService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

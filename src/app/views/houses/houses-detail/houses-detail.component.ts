@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {HouseService} from '../../../services/house.service.client';
 import {ActivatedRoute, Router} from '@angular/router';
 import {House} from '../../../models/house.model.client';
 import {SharedService} from '../../../services/shared.service';
+import {PublicService} from '../../../services/public.service';
 
 @Component({
   selector: 'app-houses-detail',
@@ -10,15 +11,14 @@ import {SharedService} from '../../../services/shared.service';
   styleUrls: ['./houses-detail.component.css']
 })
 export class HousesDetailComponent implements OnInit {
-
   userId: String;
   houseId: String;
-  house: House;
   user: String;
+  house: House;
   role: String;
 
-  constructor(private houseService: HouseService, private activatedRoute: ActivatedRoute, private router: Router, private sharedService: SharedService) {
-    this.house = new House('123', '123', '123', '123', '123', '123', '123');
+  constructor(private houseService: HouseService, private activatedRoute: ActivatedRoute, private router: Router, private sharedService: SharedService, private publicService: PublicService) {
+    // this.house = new House('1', '1', '1', '1', '1', '1', '1', '1');
     this.user = sharedService.user;
     this.role = sharedService.role;
   }

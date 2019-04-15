@@ -12,9 +12,10 @@ import {CommentsNewComponent} from './views/comments/comments-new/comments-new.c
 import {CommentsEditComponent} from './views/comments/comments-edit/comments-edit.component';
 import {HousesDetailComponent} from './views/houses/houses-detail/houses-detail.component';
 import {HousesOrderComponent} from './views/houses/houses-order/houses-order.component';
+import {LandingComponent} from './views/landing/landing.component';
 
 const appRoutes: Routes = [
-  {path: '', component: LoginComponent},
+  {path: '', component: LandingComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'user/:uid', component: ProfileComponent, canActivate: [AuthGuard]},
