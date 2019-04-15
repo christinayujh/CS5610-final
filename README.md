@@ -41,17 +41,17 @@ Seller: alice/alice
 Buyer: bob/bob
 
 ## Domain relationship
-Hill, Apartment, 5027 were created by vic, House and AVL were created by alice.
+Hill, Apartment, 5027 were created by vic, House and AVL were created by alice.  
 5027 was bought by bob, so in its detail page, other users couldn't buy it. It appears in bob's my order page and bob could delete it.
-Hill has comment by bob and bob could operate this comment.
+Hill has comment by bob and bob could operate this comment.  
 Every page has the left icon, user could click it to the previous page.
 
 ## User operations
-Landing page shows the animation and click the Login to login.
-After loggedin, the user will be redirected to profile page and be able to update their information. Click the Houses button to redirect to house detail page. Click logout button to logout.
-Click the plus icon on house list page, the seller could add a new house.
-If alice click the List My Houses label, it will only display her 3 houses.
-Click the More Info button, the page will redirect to house detail page. Owner could see the edit button on this page. If it is not sold, the buyer could see the Buy button. After clicking Buy button, the house displays in the my order component. The map displays the marker based on its address. If bob deletes the house in my order, others could buy this house again.
+Landing page shows the animation and click the Login to login.  
+After loggedin, the user will be redirected to profile page and be able to update their information. Click the Houses button to redirect to house detail page. Click logout button to logout.  
+Click the plus icon on house list page, the seller could add a new house.  
+If alice click the List My Houses label, it will only display her 3 houses.  
+Click the More Info button, the page will redirect to house detail page. Owner could see the edit button on this page. If it is not sold, the buyer could see the Buy button. After clicking Buy button, the house displays in the my order component. The map displays the marker based on its address. If bob deletes the house in my order, others could buy this house again.  
 Click the Add Comment button on house detail page, a user could add a new comment. The config icon displays only if it's the current user's comment.
 
 ## Further help
