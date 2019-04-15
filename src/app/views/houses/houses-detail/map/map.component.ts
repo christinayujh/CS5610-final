@@ -34,7 +34,7 @@ export class MapComponent implements OnInit {
       lng: 7.809007,
       draggable: true
     },
-    zoom: 5
+    zoom: 13
   };
 
   @ViewChild(AgmMap) map: AgmMap;

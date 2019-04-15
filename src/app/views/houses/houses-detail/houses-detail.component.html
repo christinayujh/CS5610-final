@@ -13,8 +13,8 @@
 </nav>
 <div class="container">
   <div class="row" style="display:flex; flex-wrap: wrap;">
-    <div class="col-sm-4 d-none d-sm-block">
-      <app-map [address]=house?house.address:null></app-map>
+    <div class="col-sm-4 d-none d-sm-block" *ngIf="house">
+      <app-map [address]=house.address></app-map>
     </div>
     <div class="col-sm-8 d-none d-sm-block" *ngIf="house">
       <div class="img-thumbnail img-fluid">

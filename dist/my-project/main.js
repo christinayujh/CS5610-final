@@ -1035,7 +1035,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar fixed-top cl-blue-navbar\">\n  <div class=\"container-fluid\">\n    <div class=\"float-left\">\n      <a [routerLink]=\"userId?['/user', userId, 'house']:[]\" class=\"navbar-link cl-text-white\">\n        <span class=\"fas fa-chevron-left\"></span>\n      </a>\n      <a class=\"cl-text-white navbar-brand cl-text-bold\">\n        House Detail\n      </a>\n    </div>\n\n  </div>\n</nav>\n<div class=\"container\">\n  <div class=\"row\" style=\"display:flex; flex-wrap: wrap;\">\n    <div class=\"col-sm-4 d-none d-sm-block\">\n      <app-map [address]=house?house.address:null></app-map>\n    </div>\n    <div class=\"col-sm-8 d-none d-sm-block\" *ngIf=\"house\">\n      <div class=\"img-thumbnail img-fluid\">\n        <img src=\"{{house.url}}\" style=\"max-width: 90%; height: auto\">\n        <div class=\"caption-full\">\n          <h4 class=\"float-right\">{{house.price}}</h4>\n          <h4><a>{{house.name}}</a></h4>\n          <h4>{{house.address}}</h4>\n          <p><em>{{house.description}}</em></p>\n          <h3 *ngIf=\"house && house.buyer\">Sold Out</h3>\n        </div>\n        <p>\n          <a routerLink=\"/user/{{userId}}/house/{{houseId}}\" class=\"btn btn-primary\"\n             *ngIf=\"house && (role === 'Admin' || house.owner === user)\">Edit</a>\n        </p>\n        <a class=\"btn btn-primary\" (click)=\"buy(house)\" *ngIf=\"role === 'Buyer' && house && (!house.buyer || house.buyer==null)\">Buy</a>\n      </div>\n      <app-comments-list></app-comments-list>\n    </div>\n  </div>\n</div>\n\n<nav class=\"navbar fixed-bottom cl-blue-navbar\">\n  <div class=\"container-fuild\">\n    <a routerLink=\"/user/{{userId}}\" class=\"navbar-link float-right cl-text-white cl-icon-padding\">\n      <span class=\"fas fa-user\"></span>\n    </a>\n  </div>\n</nav>\n"
+module.exports = "<nav class=\"navbar fixed-top cl-blue-navbar\">\n  <div class=\"container-fluid\">\n    <div class=\"float-left\">\n      <a [routerLink]=\"userId?['/user', userId, 'house']:[]\" class=\"navbar-link cl-text-white\">\n        <span class=\"fas fa-chevron-left\"></span>\n      </a>\n      <a class=\"cl-text-white navbar-brand cl-text-bold\">\n        House Detail\n      </a>\n    </div>\n\n  </div>\n</nav>\n<div class=\"container\">\n  <div class=\"row\" style=\"display:flex; flex-wrap: wrap;\">\n    <div class=\"col-sm-4 d-none d-sm-block\" *ngIf=\"house\">\n      <app-map [address]=house.address></app-map>\n    </div>\n    <div class=\"col-sm-8 d-none d-sm-block\" *ngIf=\"house\">\n      <div class=\"img-thumbnail img-fluid\">\n        <img src=\"{{house.url}}\" style=\"max-width: 90%; height: auto\">\n        <div class=\"caption-full\">\n          <h4 class=\"float-right\">{{house.price}}</h4>\n          <h4><a>{{house.name}}</a></h4>\n          <h4>{{house.address}}</h4>\n          <p><em>{{house.description}}</em></p>\n          <h3 *ngIf=\"house && house.buyer\">Sold Out</h3>\n        </div>\n        <p>\n          <a routerLink=\"/user/{{userId}}/house/{{houseId}}\" class=\"btn btn-primary\"\n             *ngIf=\"house && (role === 'Admin' || house.owner === user)\">Edit</a>\n        </p>\n        <a class=\"btn btn-primary\" (click)=\"buy(house)\" *ngIf=\"role === 'Buyer' && house && (!house.buyer || house.buyer==null)\">Buy</a>\n      </div>\n      <app-comments-list></app-comments-list>\n    </div>\n  </div>\n</div>\n\n<nav class=\"navbar fixed-bottom cl-blue-navbar\">\n  <div class=\"container-fuild\">\n    <a routerLink=\"/user/{{userId}}\" class=\"navbar-link float-right cl-text-white cl-icon-padding\">\n      <span class=\"fas fa-user\"></span>\n    </a>\n  </div>\n</nav>\n"
 
 /***/ }),
 
@@ -1125,7 +1125,7 @@ module.exports = "agm-map {\r\n  height: 300px;\r\n}\r\n\r\n/*# sourceMappingURL
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<agm-map [latitude]=\"location.lat\" [longitude]=\"location.lng\">\r\n  <agm-marker [latitude]=\"location.marker.lat\" [longitude]=\"location.marker.lng\"></agm-marker>\r\n</agm-map>\r\n"
+module.exports = "<agm-map [latitude]=\"location.lat\" [longitude]=\"location.lng\" [zoom]=\"location.zoom\">\r\n  <agm-marker [latitude]=\"location.marker.lat\" [longitude]=\"location.marker.lng\"></agm-marker>\r\n</agm-map>\r\n"
 
 /***/ }),
 
@@ -1158,7 +1158,7 @@ var MapComponent = /** @class */ (function () {
                 lng: 7.809007,
                 draggable: true
             },
-            zoom: 5
+            zoom: 13
         };
     }
     MapComponent.prototype.ngOnInit = function () {
