@@ -18,15 +18,15 @@ The web application mainly contains User, House, Comment domain objects. The def
 ## Roles
 
 There are three roles: Admin, Seller, Buyer.
-Admin could:
+### Admin could:
   - Update profile
   - CRUD House objects
-  - CRUD Comment object
-Seller could:
+  - CRUD Comment objects
+### Seller could:
   - Update profile
   - Create House, view All House and view my houses, update and delete my houses
   - CRUD their own comments
-Buyer could:
+### Buyer could:
   - Update profile
   - Read House
   - Select unsold house into their order, delete house in their order
